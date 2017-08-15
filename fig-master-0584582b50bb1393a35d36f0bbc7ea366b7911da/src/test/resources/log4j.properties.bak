@@ -1,0 +1,398 @@
+log4j.rootLogger=debug
+log4j.logger.com=warn,apifile
+log4j.logger.org=warn,apifile
+log4j.logger.net=warn,apifile  
+log4j.logger.monitor=warn,apifile
+log4j.logger.httpclient=warn,apifile
+log4j.logger.uinfochg=info,uinfochg,apifile
+log4j.logger.cn.vika.memcached=error,errorfile
+log4j.logger.monitor_stat=info,monitor_stat
+log4j.logger.com.sina.mblogapi=warn,warnfile
+log4j.logger.cn.sina=warn,warnfile
+log4j.logger.cn.sina.api=info,infofile
+##################################
+log4j.logger.account=info,local_account,scribe_account
+log4j.logger.apistat=info,apistat,scribe_apistat
+log4j.logger.apierror=info,apierror,scribe_apierror
+log4j.logger.api=info,apifile
+log4j.logger.info=info,infofile
+log4j.logger.warn=warn,warnfile
+log4j.logger.error=debug,errorfile
+log4j.logger.mblogapi=debug,apifile
+log4j.logger.common=debug,apifile
+log4j.logger.debug_stat=debug,debug_stat
+log4j.logger.access=debug,access
+log4j.logger.request=info,request
+log4j.logger.testlog=debug,testlog
+log4j.logger.error=debug,errorfile
+log4j.logger.boot=debug,bootfile
+log4j.logger.trace=debug,tracefile
+log4j.logger.profile=info,profile
+log4j.logger.httpclientaccess=debug,httpclientaccess
+log4j.logger.heartbeat=info,heartbeat,scribe_heartbeat
+log4j.logger.httpclientaccess=debug,httpclientaccess
+log4j.logger.serviceStatsLog=info,local_serviceStatsLog,scribe_serviceStatsLog
+log4j.logger.accessLog=debug,access
+
+#log apiunreadhint
+log4j.logger.apiunreadhint=info,apiunreadhint,unreadhint
+
+log4j.logger.nav=info,nav
+log4j.logger.cn.sina.groupmsg=WARN,groupmsg
+log4j.logger.cn.sina.groupmsg.SlowLog=INFO,groupmsgSlow
+log4j.logger.jedis=INFO,jedis
+
+#log uinfochg
+log4j.appender.uinfochg=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.uinfochg.file=./logs/uinfochg.log
+log4j.appender.uinfochg.DatePattern='.'yyyyMMdd
+log4j.appender.uinfochg.layout=org.apache.log4j.PatternLayout
+log4j.appender.uinfochg.layout.ConversionPattern=%m%n
+
+log4j.appender.file=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.file.file=./logs/debug_cn.log
+log4j.appender.file.DatePattern='.'yyyyMMddHH
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss SSS} [%p] %m%n
+#log4j.appender.file.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss sss} [%p] (%c:%L) %m%n
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss SSS} [%p] %m%n
+
+#for user stat
+log4j.appender.monitor_stat=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.monitor_stat.file=./logs/monitor_stat.log
+log4j.appender.monitor_stat.DatePattern=yyyyMMddHH'.log'
+log4j.appender.monitor_stat.layout=org.apache.log4j.PatternLayout
+log4j.appender.monitor_stat.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} %m%n
+
+log4j.appender.scribe_apistat=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe_apistat.hostname=127.0.0.1
+log4j.appender.scribe_apistat.port=1463
+log4j.appender.scribe_apistat.logger=openapi_v4
+log4j.appender.scribe_apistat.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_v4.fail.log
+log4j.appender.scribe_apistat.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss,SSS} %m%n
+
+log4j.appender.apistat=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.apistat.file=./logs/apistat.log
+log4j.appender.apistat.DatePattern='.'yyyyMMdd
+log4j.appender.apistat.layout=org.apache.log4j.PatternLayout
+log4j.appender.apistat.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss,SSS} %m%n
+
+log4j.appender.scribe_apierror=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe_apierror.hostname=127.0.0.1
+log4j.appender.scribe_apierror.port=1463
+log4j.appender.scribe_apierror.logger=openapi_v4_apierror
+log4j.appender.scribe_apierror.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_v4_apierror.fail.log
+log4j.appender.scribe_apierror.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss,SSS} %m%n
+
+log4j.appender.apierror=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.apierror.file=./logs/apierror.log
+log4j.appender.apierror.DatePattern='.'yyyyMMdd
+log4j.appender.apierror.layout=org.apache.log4j.PatternLayout
+log4j.appender.apierror.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss,SSS} %m%n
+
+
+log4j.appender.apifile=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.apifile.file=./logs/api.log
+log4j.appender.apifile.DatePattern='.'yyyyMMdd-HH
+log4j.appender.apifile.layout=org.apache.log4j.PatternLayout
+log4j.appender.apifile.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.infofile=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.infofile.file=./logs/info.log
+log4j.appender.infofile.DatePattern='.'yyyyMMdd-HH
+log4j.appender.infofile.layout=org.apache.log4j.PatternLayout
+log4j.appender.infofile.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.warnfile=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.warnfile.file=./logs/warn.log
+log4j.appender.warnfile.DatePattern='.'yyyyMMdd
+log4j.appender.warnfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.warnfile.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.errorfile=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.errorfile.file=./logs/error.log
+log4j.appender.errorfile.DatePattern='.'yyyyMMdd
+log4j.appender.errorfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.errorfile.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.profile=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.profile.file=./logs/profile.log
+log4j.appender.profile.DatePattern='.'yyyyMMdd-HH
+log4j.appender.profile.layout=org.apache.log4j.PatternLayout
+log4j.appender.profile.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} %m%n
+
+log4j.appender.debug_stat=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.debug_stat.file=./logs/debug_stat.log
+log4j.appender.debug_stat.DatePattern='.'yyyyMMdd
+log4j.appender.debug_stat.layout=org.apache.log4j.PatternLayout
+log4j.appender.debug_stat.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.access=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.access.file=./logs/access.log
+log4j.appender.access.DatePattern='.'yyyyMMdd-HH
+log4j.appender.access.layout=org.apache.log4j.PatternLayout
+log4j.appender.access.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.request=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.request.file=./logs/request.log
+log4j.appender.request.DatePattern='.'yyyyMMdd-HH
+log4j.appender.request.layout=org.apache.log4j.PatternLayout
+log4j.appender.request.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.testlog=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.testlog.file=./logs/testlog.log
+log4j.appender.testlog.DatePattern='.'yyyyMMdd-HH
+log4j.appender.testlog.layout=org.apache.log4j.PatternLayout
+log4j.appender.testlog.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+# jedis log, by fulin
+log4j.appender.jedis=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.jedis.file=./logs/jedis.log
+log4j.appender.jedis.DatePattern='.'yyyyMMdd-HH
+log4j.appender.jedis.layout=org.apache.log4j.PatternLayout
+log4j.appender.jedis.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] [%t] %c{2} - %m%n
+
+
+log4j.appender.tracefile=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.tracefile.file=./logs/trace.log
+log4j.appender.tracefile.DatePattern='.'yyyyMMdd-HH
+log4j.appender.tracefile.layout=org.apache.log4j.PatternLayout
+log4j.appender.tracefile.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.bootfile=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.bootfile.file=./logs/boot.log
+log4j.appender.bootfile.DatePattern='.'yyyyMMdd-HH
+log4j.appender.bootfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.bootfile.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.fire=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.fire.hostname=127.0.0.1
+log4j.appender.fire.port=1463
+log4j.appender.fire.logger=openapi_fire
+log4j.appender.fire.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_fire.fail.log
+log4j.appender.fire.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss,SSS} %m%n
+
+
+log4j.appender.exposure=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.exposure.file=./logs/exposure.log
+log4j.appender.exposure.DatePattern='.'yyyyMMdd
+log4j.appender.exposure.layout=org.apache.log4j.PatternLayout
+log4j.appender.exposure.layout.ConversionPattern=%m%n
+
+log4j.appender.scribe_exposure=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe_exposure.hostname=127.0.0.1
+log4j.appender.scribe_exposure.port=1463
+log4j.appender.scribe_exposure.logger=openapi_exposure
+log4j.appender.scribe_exposure.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_exposure.fail.log
+log4j.appender.scribe_exposure.layout.ConversionPattern=%m%n
+
+log4j.appender.httpclientaccess=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.httpclientaccess.file=./logs/httpclientaccess.log
+log4j.appender.httpclientaccess.DatePattern='.'yyyyMMdd
+log4j.appender.httpclientaccess.layout=org.apache.log4j.PatternLayout
+log4j.appender.httpclientaccess.layout.ConversionPattern=%-d{HH:mm:ss} %m%n
+
+
+log4j.logger.op=info,local_op,scribe_op
+
+log4j.appender.scribe_op=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe_op.hostname=127.0.0.1
+log4j.appender.scribe_op.port=1463
+log4j.appender.scribe_op.logger=openapi_op
+log4j.appender.scribe_op.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_op.fail.log
+log4j.appender.scribe_op.layout.ConversionPattern=%m%n
+
+log4j.appender.local_op=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.local_op.file=./logs/op.log
+log4j.appender.local_op.DatePattern='.'yyyyMMdd
+log4j.appender.local_op.layout=org.apache.log4j.PatternLayout
+log4j.appender.local_op.layout.ConversionPattern=%m%n
+
+
+log4j.logger.tauth_log=info,tauthlog,tauthlog_scribe
+
+log4j.appender.tauthlog=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.tauthlog.file=./logs/tauth.log
+log4j.appender.tauthlog.DatePattern='.'yyyyMMdd
+log4j.appender.tauthlog.layout=org.apache.log4j.PatternLayout
+log4j.appender.tauthlog.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} %m%n
+
+
+log4j.appender.tauthlog_scribe=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.tauthlog_scribe.hostname=127.0.0.1
+log4j.appender.tauthlog_scribe.port=1463
+log4j.appender.tauthlog_scribe.logger=openapi_tauth
+log4j.appender.tauthlog_scribe.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_tauth.fail.log
+log4j.appender.tauthlog_scribe.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss,SSS} %m%n
+
+log4j.appender.local_account=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.local_account.file=./logs/account.log
+log4j.appender.local_account.DatePattern='.'yyyyMMdd
+log4j.appender.local_account.layout=org.apache.log4j.PatternLayout
+log4j.appender.local_account.layout.ConversionPattern=%-d{HH:mm:ss} %m%n
+ 
+log4j.appender.scribe_account=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe_account.hostname=127.0.0.1
+log4j.appender.scribe_account.port=1463
+log4j.appender.scribe_account.logger=openapi_account
+log4j.appender.scribe_account.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_account.fail.log
+log4j.appender.scribe_account.layout.ConversionPattern=%-d{HH:mm:ss} %m%n
+
+log4j.logger.org.perf4j.TimingLogger=info,perf4j_time
+log4j.logger.perf4j=info,perf4j_time
+
+
+log4j.appender.perf4j_time=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.perf4j_time.file=./logs/perf_time.log
+log4j.appender.perf4j_time.DatePattern='.'yyyyMMdd
+log4j.appender.perf4j_time.layout=org.apache.log4j.PatternLayout
+log4j.appender.perf4j_time.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} %m%n
+
+log4j.appender.notice=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.notice.file=./logs/notice.log
+log4j.appender.notice.DatePattern='.'yyyyMMdd
+log4j.appender.notice.layout=org.apache.log4j.PatternLayout
+log4j.appender.notice.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.noticeSlow=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.noticeSlow.file=./logs/noticeSlow.log
+log4j.appender.noticeSlow.DatePattern='.'yyyyMMdd
+log4j.appender.noticeSlow.layout=org.apache.log4j.PatternLayout
+log4j.appender.noticeSlow.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.noticeTestLog=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.noticeTestLog.file=./logs/noticeTest.log
+log4j.appender.noticeTestLog.DatePattern='.'yyyyMMdd
+log4j.appender.noticeTestLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.noticeTestLog.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.groupmsg=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.groupmsg.file=./logs/groupmsg.log
+log4j.appender.groupmsg.DatePattern='.'yyyyMMdd
+log4j.appender.groupmsg.layout=org.apache.log4j.PatternLayout
+log4j.appender.groupmsg.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.groupmsgSlow=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.groupmsgSlow.file=./logs/groupmsgSlow.log
+log4j.appender.groupmsgSlow.DatePattern='.'yyyyMMdd
+log4j.appender.groupmsgSlow.layout=org.apache.log4j.PatternLayout
+log4j.appender.groupmsgSlow.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.apiunreadhint=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.apiunreadhint.hostname=127.0.0.1
+log4j.appender.apiunreadhint.port=1463
+log4j.appender.apiunreadhint.logger=openapi_hint
+log4j.appender.apiunreadhint.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_hint.fail.log
+log4j.appender.apiunreadhint.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} %m%n
+
+log4j.appender.unreadhint=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.unreadhint.file=./logs/unreadhint.log
+log4j.appender.unreadhint.DatePattern='.'yyyyMMdd-HH
+log4j.appender.unreadhint.layout=org.apache.log4j.PatternLayout
+log4j.appender.unreadhint.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} %m%n
+
+log4j.appender.nav=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.nav.file=./logs/nav.log
+log4j.appender.nav.DatePattern='.'yyyyMMdd
+log4j.appender.nav.layout=org.apache.log4j.PatternLayout
+log4j.appender.nav.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.groupremind=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.groupremind.file=./logs/groupremind.log
+log4j.appender.groupremind.DatePattern='.'yyyyMMdd
+log4j.appender.groupremind.layout=org.apache.log4j.PatternLayout
+log4j.appender.groupremind.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+log4j.appender.mblogstat=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.mblogstat.file=./logs/mblogstat.log
+log4j.appender.mblogstat.DatePattern='.'yyyyMMdd
+log4j.appender.mblogstat.layout=org.apache.log4j.PatternLayout
+log4j.appender.mblogstat.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss,SSS} %m%n
+
+log4j.appender.scribe=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe.hostname=127.0.0.1
+log4j.appender.scribe.port=1463
+log4j.appender.scribe.logger=openapi_v4
+log4j.appender.scribe.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_v4.fail.log
+log4j.appender.scribe.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss,SSS} %m%n
+
+log4j.appender.infofile=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.infofile.file=./logs/info.log
+log4j.appender.infofile.DatePattern='.'yyyyMMdd-HH
+log4j.appender.infofile.layout=org.apache.log4j.PatternLayout
+log4j.appender.infofile.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%p] %m%n
+
+
+log4j.appender.heartbeat=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.heartbeat.file=./logs/heartbeat.log
+log4j.appender.heartbeat.DatePattern='.'yyyyMMdd
+log4j.appender.heartbeat.layout=org.apache.log4j.PatternLayout
+log4j.appender.heartbeat.layout.ConversionPattern=%m%n
+
+log4j.appender.scribe_heartbeat=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe_heartbeat.hostname=127.0.0.1
+log4j.appender.scribe_heartbeat.port=1463
+log4j.appender.scribe_heartbeat.logger=openapi_heartbeat
+log4j.appender.scribe_heartbeat.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_heartbeat.fail.log
+log4j.appender.scribe_heartbeat.layout.ConversionPattern=%m%n
+
+log4j.appender.httpclientaccess=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.httpclientaccess.file=./logs/httpclientaccess.log
+log4j.appender.httpclientaccess.DatePattern='.'yyyyMMdd
+log4j.appender.httpclientaccess.layout=org.apache.log4j.PatternLayout
+log4j.appender.httpclientaccess.layout.ConversionPattern=%-d{HH:mm:ss} %m%n
+
+log4j.logger.notice_send_log=info,local_notice_send,scribe_notice_send
+ 
+log4j.appender.scribe_notice_send=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe_notice_send.hostname=127.0.0.1
+log4j.appender.scribe_notice_send.port=1463
+log4j.appender.scribe_notice_send.logger=openapi_notice
+log4j.appender.scribe_notice_send.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_request.failLoggerFile=./logs/openapi_notice.fail.log
+log4j.appender.scribe_notice_send.layout.ConversionPattern=%-d{HH:mm:ss} %m%n
+ 
+log4j.appender.local_notice_send=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.local_notice_send.file=./logs/notice_send.log
+log4j.appender.local_notice_send.DatePattern='.'yyyyMMdd
+log4j.appender.local_notice_send.layout=org.apache.log4j.PatternLayout
+log4j.appender.local_notice_send.layout.ConversionPattern=%-d{HH:mm:ss} %m%n
+
+#scribe stats
+log4j.logger.openapi_prism=info,openapi_prism 
+log4j.appender.openapi_prism=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.openapi_prism.hostname=127.0.0.1
+log4j.appender.openapi_prism.port=1463
+log4j.appender.openapi_prism.logger=openapi_prism
+log4j.appender.openapi_prism.failLoggerFile=./logs/openapi_prism.fail.log
+log4j.appender.openapi_prism.layout=org.apache.log4j.PatternLayout
+log4j.appender.openapi_prism.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} %m%n
+
+#api-user-rpc
+log4j.appender.local_serviceStatsLog=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.local_serviceStatsLog.file=./logs/serviceStatsLog.log
+log4j.appender.local_serviceStatsLog.DatePattern='.'yyyyMMdd
+log4j.appender.local_serviceStatsLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.local_serviceStatsLog.layout.ConversionPattern=%-d{HH:mm:ss} %m%n
+
+
+log4j.appender.scribe_serviceStatsLog=cn.sina.api.commons.scribe.FailOverScribeAppender
+log4j.appender.scribe_serviceStatsLog.hostname=127.0.0.1
+log4j.appender.scribe_serviceStatsLog.port=1463
+log4j.appender.scribe_serviceStatsLog.logger=openapi_serviceStats
+log4j.appender.scribe_serviceStatsLog.failLoggerFile=./logs/serviceStatsLog.fail.log
+log4j.appender.scribe_serviceStatsLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.scribe_serviceStatsLog.layout.ConversionPattern=%-d{HH:mm:ss} %m%n
